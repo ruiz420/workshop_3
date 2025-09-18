@@ -48,6 +48,28 @@
 
             return 0;
         }
+        public static string Getviga(string message)
+        {
+            Console.Write(message);
+            var input = Console.ReadLine()?.Trim() ?? "";
+
+            if (string.IsNullOrEmpty(input))
+            {
+                throw new ArgumentException("Debe ingresar al menos un símbolo de viga.");
+            }
+
+            var validSymbols = new HashSet<char> { '%', '&', '#', '=', '*' };
+
+            foreach (char c in input)
+            {
+                if (!validSymbols.Contains(c))
+                {
+                    throw new ArgumentException($"El símbolo '{c}' no es válido. Solo se permiten: %, &, #, =, *");
+                }
+            }
+
+            return input;
+        }
 
     }
 }

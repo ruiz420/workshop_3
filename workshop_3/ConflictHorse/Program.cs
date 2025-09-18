@@ -32,7 +32,7 @@ class Program
                     Console.WriteLine($"El Caballo en {horse} => Conflicto con {string.Join(", ", conflicts.Any() ? conflicts : new List<string> { "ninguno" })}");
                 }
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
